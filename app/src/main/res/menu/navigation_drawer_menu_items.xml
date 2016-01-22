@@ -14,17 +14,17 @@
             android:id="@+id/nav_creating"
             android:icon="@mipmap/ic_create"
             android:title="Create Videos" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@mipmap/ic_settings_black_48dp"
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_help_feedback"
+            android:icon="@mipmap/ic_live_help_black_48dp"
+            android:title="Help &amp; Feedback" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@mipmap/ic_exit_to_app_black_48dp"
+            android:title="Logout" />
     </group>
-    <item android:title="More Options">
-        <menu>
-            <item
-                android:id="@+id/nav_settings"
-                android:icon="@mipmap/ic_settings_black_48dp"
-                android:title="Settings" />
-            <item
-                android:id="@+id/nav_help_feedback"
-                android:icon="@mipmap/ic_live_help_black_48dp"
-                android:title="Help &amp; Feedback" />
-        </menu>
-    </item>
 </menu>
