@@ -92,6 +92,8 @@ public class NavigationDrawer extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_privacy){
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -127,7 +129,7 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_help_feedback) {
             //Handle the help & feedback mechanism
             fab.setVisibility(View.GONE);
-            navigationView.getMenu().getItem(2).setChecked(true);
+            navigationView.getMenu().getItem(4).setChecked(true);
             fragmentManager.beginTransaction().replace(R.id.content_frame, new HelpFeedbackFragment()).commit();
         } else if (id == R.id.nav_logout){
             //Handle the logout mechanism
