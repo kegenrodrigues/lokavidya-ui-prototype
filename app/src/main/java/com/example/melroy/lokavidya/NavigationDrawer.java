@@ -1,10 +1,10 @@
 package com.example.melroy.lokavidya;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -31,9 +31,10 @@ public class NavigationDrawer extends AppCompatActivity
     FragmentManager fragmentManager;
     Boolean backPress;
     NavigationView navigationView;
-    FloatingActionButton fab;
     Toolbar toolbar;
     DrawerLayout drawer;
+    SharedPreferences sharedpreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +43,8 @@ public class NavigationDrawer extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        sharedpreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        editor = sharedpreferences.edit();
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -62,7 +57,7 @@ public class NavigationDrawer extends AppCompatActivity
         navigationView.getMenu().getItem(0).setChecked(true);
 
         fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame, new DashboardFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new DashboardFragment()).commit();
     }
 
     @Override
@@ -90,9 +85,11 @@ public class NavigationDrawer extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_privacy) {
             return true;
-        } else if (id == R.id.action_privacy){
+        } else if (id == R.id.action_signout){
+            //TODO handle code for Signout Mechanism
+
             return true;
         }
 
@@ -108,31 +105,24 @@ public class NavigationDrawer extends AppCompatActivity
 
         if (id == R.id.nav_dashboard) {
             //This will toggle the dashboard fragment
-            fab.setVisibility(View.GONE);
             navigationView.getMenu().getItem(0).setChecked(true);
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new DashboardFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new DashboardFragment()).commit();
         } else if (id == R.id.nav_viewing) {
             //Handle the viewing mechanism
-            fab.setVisibility(View.GONE);
             navigationView.getMenu().getItem(1).setChecked(true);
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new ViewingFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new ViewingFragment()).commit();
         } else if (id == R.id.nav_creating) {
             //Handle the creation mechanism
-            fab.setVisibility(View.GONE);
             navigationView.getMenu().getItem(2).setChecked(true);
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new CreatingFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new CreatingFragment()).commit();
         } else if (id == R.id.nav_settings) {
             //Handle the settings mechanism
-            fab.setVisibility(View.GONE);
             navigationView.getMenu().getItem(3).setChecked(true);
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new SettingsFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new SettingsFragment()).commit();
         } else if (id == R.id.nav_help_feedback) {
             //Handle the help & feedback mechanism
-            fab.setVisibility(View.GONE);
             navigationView.getMenu().getItem(4).setChecked(true);
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new HelpFeedbackFragment()).commit();
-        } else if (id == R.id.nav_logout){
-            //Handle the logout mechanism
+            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new HelpFeedbackFragment()).commit();
         }
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

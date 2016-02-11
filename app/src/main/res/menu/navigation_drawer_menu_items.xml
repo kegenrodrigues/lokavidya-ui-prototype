@@ -22,9 +22,5 @@
             android:id="@+id/nav_help_feedback"
             android:icon="@mipmap/ic_live_help_black_48dp"
             android:title="Help &amp; Feedback" />
-        <item
-            android:id="@+id/nav_logout"
-            android:icon="@mipmap/ic_exit_to_app_black_48dp"
-            android:title="Logout" />
     </group>
 </menu>
