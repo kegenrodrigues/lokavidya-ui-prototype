@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.melroy.lokavidya.R;
 
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /**
  This class handles calls to the Create Videos Fragment.
  **/
-public class CreatingFragment extends Fragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
+public class CreatingVideosFragment extends Fragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     //Handle all the variable declarations here
     FloatingActionButton fabForCreateVideos;
     View rootView;
@@ -39,7 +39,7 @@ public class CreatingFragment extends Fragment implements AdapterView.OnItemClic
         rootView = inflater.inflate(R.layout.fragment_create_videos, container, false);
         getActivity().setTitle(R.string.title_creating);
 
-        listViewCreateVideos = (ListView) rootView.findViewById(R.id.listView_project_name);
+        listViewCreateVideos = (ListView) rootView.findViewById(R.id.listView_create_projects);
         listViewCreateVideos.setOnItemClickListener(this);
         listViewCreateVideos.setOnItemLongClickListener(this);
 
@@ -47,14 +47,14 @@ public class CreatingFragment extends Fragment implements AdapterView.OnItemClic
         fabForCreateVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
 //                createFabSelected();
             }
         });
         //Code for ListView
         projectName = new ArrayList<String>();
-        projectName.add("There");
+        projectName.add("There is a great stuff in this ListItem");
         projectName.add("Done");
         projectName.add("Here");
         projectName.add("There");
@@ -95,10 +95,10 @@ public class CreatingFragment extends Fragment implements AdapterView.OnItemClic
         projectLanguage.add("English");
         System.out.println(projectLanguage);
 
-        ArrayAdapter<String> arrayAdapterProjectName = new ArrayAdapter<String>(getActivity(), R.layout.listview_create_videos, R.id.textView_project_name, projectName);
+        ArrayAdapter<String> arrayAdapterProjectName = new ArrayAdapter<String>(getActivity(), R.layout.content_for_create_videos, R.id.textView_project_name, projectName);
         listViewCreateVideos.setAdapter(arrayAdapterProjectName);
 
-//        ArrayAdapter<String> arrayAdapterLanguage = new ArrayAdapter<String>(getActivity(), R.layout.listview_create_videos, R.id.textView_language, projectLanguage);
+//        ArrayAdapter<String> arrayAdapterLanguage = new ArrayAdapter<String>(getActivity(), R.layout.content_for_create_videos, R.id.textView_language, projectLanguage);
 //        listViewCreateVideos.setAdapter(arrayAdapterLanguage);
         return rootView;
     }

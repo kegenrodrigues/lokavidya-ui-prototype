@@ -1,6 +1,5 @@
 package com.example.melroy.lokavidya;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -14,11 +13,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.melroy.lokavidya.fragments.CreatingFragment;
+import com.example.melroy.lokavidya.fragments.CreatingVideosFragment;
 import com.example.melroy.lokavidya.fragments.DashboardFragment;
 import com.example.melroy.lokavidya.fragments.HelpFeedbackFragment;
 import com.example.melroy.lokavidya.fragments.SettingsFragment;
-import com.example.melroy.lokavidya.fragments.ViewingFragment;
+import com.example.melroy.lokavidya.fragments.BrowsingVideosFragment;
 
 /**
  This class handles the complete set of functionality related to the Navigation Drawer.
@@ -110,11 +109,11 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_viewing) {
             //Handle the viewing mechanism
             navigationView.getMenu().getItem(1).setChecked(true);
-            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new ViewingFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new BrowsingVideosFragment()).commit();
         } else if (id == R.id.nav_creating) {
             //Handle the creation mechanism
             navigationView.getMenu().getItem(2).setChecked(true);
-            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new CreatingFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new CreatingVideosFragment()).commit();
         } else if (id == R.id.nav_settings) {
             //Handle the settings mechanism
             navigationView.getMenu().getItem(3).setChecked(true);
