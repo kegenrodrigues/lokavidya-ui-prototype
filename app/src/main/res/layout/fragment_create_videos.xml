@@ -11,7 +11,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/listView_create_projects"
                 android:divider="@null"
-                android:dividerHeight="0dp">
+                android:dividerHeight="0dp"
+                android:paddingTop="8dp">
             </ListView>
             <android.support.design.widget.CoordinatorLayout
                 android:layout_width="match_parent"

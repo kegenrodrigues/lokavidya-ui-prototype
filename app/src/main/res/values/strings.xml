@@ -90,5 +90,7 @@
     <string name="feedback_type">Feedback Type</string>
     <string name="button_submit">SUBMIT</string>
     <string name="helpfeedback_activity_description">Your feedback, system information and email address will be sent to Lokavidya. See Lokavidya\'s privacy policy and terms of service.</string>
+    <string name="title_activity_view_online_video">ViewOnlineVideoActivity</string>
+    <string name="title_activity_editing_module">EditingModuleActivity</string>
 
 </resources>

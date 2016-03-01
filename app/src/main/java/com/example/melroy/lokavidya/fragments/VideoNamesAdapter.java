@@ -10,10 +10,14 @@ import android.widget.TextView;
 
 import com.example.melroy.lokavidya.R;
 
+/*
+This is a base class adapter to fetch and inflate the browsing video functionality
+*/
 public class VideoNamesAdapter extends BaseAdapter {
     private Context mContext;
     private final String[] web;
     private final int[] Imageid;
+    View videoItems;
 
     public VideoNamesAdapter(Context c, String[] web, int[] Imageid) {
         mContext = c;
@@ -42,7 +46,6 @@ public class VideoNamesAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
-        View videoItems;
         LayoutInflater inflater = (LayoutInflater) mContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 

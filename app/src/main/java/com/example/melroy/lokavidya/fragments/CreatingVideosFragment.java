@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.melroy.lokavidya.R;
+import com.example.melroy.lokavidya.ViewOnlineVideoActivity;
 
 import java.util.ArrayList;
 
@@ -28,7 +30,7 @@ public class CreatingVideosFragment extends Fragment implements AdapterView.OnIt
     ArrayList<String> projectName;
     ArrayList<String> projectLanguage;
     ListView listViewCreateVideos;
-    Intent intentGoToEditingModule;
+    Intent gotoEditingModule;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);}
@@ -109,7 +111,12 @@ public class CreatingVideosFragment extends Fragment implements AdapterView.OnIt
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {}
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String projectSelected = projectName.get(getId());
+        gotoEditingModule = new Intent(getActivity(), ViewOnlineVideoActivity.class);
+        gotoEditingModule.putExtra("Selected Project", projectSelected);
+        Log.i("Selected Project:", projectSelected);
+    }
 
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {

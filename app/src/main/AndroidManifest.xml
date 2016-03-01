@@ -18,6 +18,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ViewOnlineVideoActivity"
+            android:label="@string/title_activity_view_online_video"
+            android:parentActivityName=".NavigationDrawer"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.melroy.lokavidya.NavigationDrawer" />
+        </activity>
+        <activity
+            android:name=".EditingModuleActivity"
+            android:label="@string/title_activity_editing_module"
+            android:parentActivityName=".NavigationDrawer"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.melroy.lokavidya.NavigationDrawer" />
+        </activity>
     </application>
 
 </manifest>

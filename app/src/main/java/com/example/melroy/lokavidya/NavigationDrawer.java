@@ -39,7 +39,7 @@ public class NavigationDrawer extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_drawer);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_navigation_drawer);
         setSupportActionBar(toolbar);
 
         sharedpreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -109,7 +109,7 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_viewing) {
             //Handle the viewing mechanism
             navigationView.getMenu().getItem(1).setChecked(true);
-            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new BrowsingVideosFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new BrowsingVideosFragment()).addToBackStack("Browsing Activity").commit();
         } else if (id == R.id.nav_creating) {
             //Handle the creation mechanism
             navigationView.getMenu().getItem(2).setChecked(true);

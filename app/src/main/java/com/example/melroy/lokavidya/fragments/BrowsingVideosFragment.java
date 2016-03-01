@@ -1,9 +1,11 @@
 package com.example.melroy.lokavidya.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +14,10 @@ import android.widget.Gallery;
 import android.widget.Toast;
 
 import com.example.melroy.lokavidya.R;
+import com.example.melroy.lokavidya.ViewOnlineVideoActivity;
 
 /**
- This class handles calls to the View Videos Fragment.
+ This class handles calls to the Browsing Videos Fragment.
  **/
 public class BrowsingVideosFragment extends Fragment {
 
@@ -74,11 +77,20 @@ public class BrowsingVideosFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(getActivity(), "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+                String selectedVideo = web[+position];
+                Log.i("GalleryView item id",selectedVideo);
+                Toast.makeText(getActivity(), "Playing " + web[+position] + "...", Toast.LENGTH_SHORT).show();
+                goToVideoView(selectedVideo);
 
             }
         });
         return rootView;
+    }
+
+    private void goToVideoView(String selectedVideoName) {
+        Intent gotoViewOnlineVideo = new Intent(getActivity(), ViewOnlineVideoActivity.class);
+        gotoViewOnlineVideo.putExtra("Selected Video", selectedVideoName);
+        startActivity(gotoViewOnlineVideo);
     }
 
     @Override
