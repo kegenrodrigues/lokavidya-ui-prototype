@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:src="@mipmap/ic_action_ic_slideshow_black_48px"
+        android:id="@+id/imageView_project_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="10dp" />
+    <TextView
+        android:hint="Project Name"
+        android:id="@+id/textView_project_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:paddingTop="10dp"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="4dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageView_project_icon"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:layout_alignRight="@+id/textView_language"
+        android:layout_alignEnd="@+id/textView_language" />
+    <TextView
+        android:hint="Language"
+        android:id="@+id/textView_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_project_name"
+        android:paddingBottom="10dp"
+        android:textSize="14sp"
+        android:layout_toRightOf="@+id/imageView_project_icon"
+        android:layout_toLeftOf="@+id/imageView_project_info"
+        android:layout_toStartOf="@+id/imageView_project_info"
+        android:layout_toEndOf="@+id/imageView_project_icon"/>
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@mipmap/ic_action_ic_info_black_48px"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="10dp"
+        android:id="@+id/imageView_project_info"
+        android:clickable="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
