@@ -1,4 +1,4 @@
-package com.example.melroy.lokavidya.fragments;
+package com.example.melroy.lokavidya.fragments.browsing;
 
 
 import android.content.Intent;
@@ -14,7 +14,6 @@ import android.widget.Gallery;
 import android.widget.Toast;
 
 import com.example.melroy.lokavidya.R;
-import com.example.melroy.lokavidya.ViewOnlineVideoActivity;
 
 /**
  This class handles calls to the Browsing Videos Fragment.
@@ -70,7 +69,7 @@ public class BrowsingVideosFragment extends Fragment {
 
         videoContent = (Gallery) rootView.findViewById(R.id.gallery_image_thumbnails);
         videoContent.setSpacing(0);
-        final VideoNamesAdapter galleryImageAdapter= new VideoNamesAdapter(getActivity(), web, imageId);
+        final BrowsingVideosAdapterActivity galleryImageAdapter= new BrowsingVideosAdapterActivity(getActivity(), web, imageId);
         videoContent.setAdapter(galleryImageAdapter);
         videoContent.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

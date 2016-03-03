@@ -13,11 +13,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.melroy.lokavidya.fragments.CreatingVideosFragment;
-import com.example.melroy.lokavidya.fragments.DashboardFragment;
-import com.example.melroy.lokavidya.fragments.HelpFeedbackFragment;
-import com.example.melroy.lokavidya.fragments.SettingsFragment;
-import com.example.melroy.lokavidya.fragments.BrowsingVideosFragment;
+import com.example.melroy.lokavidya.fragments.creating.CreatingVideosFragment;
+import com.example.melroy.lokavidya.fragments.dashboard.DashboardFragment;
+import com.example.melroy.lokavidya.fragments.helpfeedback.HelpFeedbackFragment;
+import com.example.melroy.lokavidya.fragments.settings.SettingsFragment;
+import com.example.melroy.lokavidya.fragments.browsing.BrowsingVideosFragment;
 
 /**
  This class handles the complete set of functionality related to the Navigation Drawer.
@@ -109,7 +109,7 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_viewing) {
             //Handle the viewing mechanism
             navigationView.getMenu().getItem(1).setChecked(true);
-            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new BrowsingVideosFragment()).addToBackStack("Browsing Activity").commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame_navigation_items, new BrowsingVideosFragment()).commit();
         } else if (id == R.id.nav_creating) {
             //Handle the creation mechanism
             navigationView.getMenu().getItem(2).setChecked(true);

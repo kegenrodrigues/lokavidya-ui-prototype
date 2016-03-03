@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ViewOnlineVideoActivity"
+            android:name=".fragments.browsing.ViewOnlineVideoActivity"
             android:label="@string/title_activity_view_online_video"
             android:parentActivityName=".NavigationDrawer"
             android:theme="@style/AppTheme.NoActionBar">
@@ -28,7 +28,7 @@
                 android:value="com.example.melroy.lokavidya.NavigationDrawer" />
         </activity>
         <activity
-            android:name=".EditingModuleActivity"
+            android:name=".fragments.creating.EditingModuleActivity"
             android:label="@string/title_activity_editing_module"
             android:parentActivityName=".NavigationDrawer"
             android:theme="@style/AppTheme.NoActionBar">

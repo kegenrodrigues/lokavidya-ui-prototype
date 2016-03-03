@@ -1,4 +1,4 @@
-package com.example.melroy.lokavidya.fragments;
+package com.example.melroy.lokavidya.fragments.browsing;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,22 +13,22 @@ import com.example.melroy.lokavidya.R;
 /*
 This is a base class adapter to fetch and inflate the browsing video functionality
 */
-public class VideoNamesAdapter extends BaseAdapter {
+public class BrowsingVideosAdapterActivity extends BaseAdapter {
     private Context mContext;
-    private final String[] web;
+    private final String[] videoNames;
     private final int[] Imageid;
     View videoItems;
 
-    public VideoNamesAdapter(Context c, String[] web, int[] Imageid) {
+    public BrowsingVideosAdapterActivity(Context c, String[] videoNames, int[] Imageid) {
         mContext = c;
         this.Imageid = Imageid;
-        this.web = web;
+        this.videoNames = videoNames;
     }
 
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return web.length;
+        return videoNames.length;
     }
 
     @Override
@@ -46,8 +46,7 @@ public class VideoNamesAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
-        LayoutInflater inflater = (LayoutInflater) mContext
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (convertView == null) {
 
@@ -55,7 +54,7 @@ public class VideoNamesAdapter extends BaseAdapter {
             videoItems = inflater.inflate(R.layout.content_for_browse_videos, null);
             TextView textView = (TextView) videoItems.findViewById(R.id.textView_video_title);
             ImageView imageView = (ImageView)videoItems.findViewById(R.id.imageView_video_thumbnail);
-            textView.setText(web[position]);
+            textView.setText(videoNames[position]);
             imageView.setImageResource(Imageid[position]);
         } else {
             videoItems = (View) convertView;

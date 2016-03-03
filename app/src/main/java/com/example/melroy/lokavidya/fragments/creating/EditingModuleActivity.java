@@ -1,4 +1,4 @@
-package com.example.melroy.lokavidya;
+package com.example.melroy.lokavidya.fragments.creating;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -6,6 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import com.example.melroy.lokavidya.R;
 
 public class EditingModuleActivity extends AppCompatActivity {
 
@@ -25,4 +27,11 @@ public class EditingModuleActivity extends AppCompatActivity {
         setTitle(selectedProjectTitle);
     }
 
+    //This method handles the Up-Navigation
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        getSupportFragmentManager().popBackStack();
+        return true;
+    }
 }

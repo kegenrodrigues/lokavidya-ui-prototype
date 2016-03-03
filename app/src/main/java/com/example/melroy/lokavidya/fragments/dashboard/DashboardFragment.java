@@ -1,4 +1,4 @@
-package com.example.melroy.lokavidya.fragments;
+package com.example.melroy.lokavidya.fragments.dashboard;
 
 
 import android.os.Bundle;
@@ -7,21 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.example.melroy.lokavidya.R;
 
-import java.util.List;
-
 /**
- This class handles calls to the Settings Fragment.
+ This class handles calls to the Dashboard Fragment.
  **/
-public class SettingsFragment extends Fragment {
-
-    //Handle all the variable declarations here
-    ListView listViewPrimarySettings;
-
+public class DashboardFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +22,8 @@ public class SettingsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
-        getActivity().setTitle(R.string.title_settings);
+        View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        getActivity().setTitle(R.string.title_dashboard);
         return rootView;
     }
 
