@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Lokavidya.iml" filepath="$PROJECT_DIR$/Lokavidya.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lokavidya-ui-prototype.iml" filepath="$PROJECT_DIR$/lokavidya-ui-prototype.iml" />
     </modules>
   </component>
 </project>
