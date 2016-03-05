@@ -12,8 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.melroy.lokavidya.R;
@@ -24,14 +22,19 @@ import java.util.ArrayList;
 /**
  This class handles calls to the Create Videos Fragment.
  **/
-public class CreatingVideosFragment extends Fragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
+public class CreatingVideosFragment extends Fragment {
     //Handle all the variable declarations here
     FloatingActionButton fabForCreateVideos;
     View rootView;
-    ArrayList<String> projectName;
-    ArrayList<String> projectLanguage;
     ListView listViewCreateVideos;
-    Intent gotoEditingModule;
+    String[] projectName = {
+            "Biogas",
+            "River"
+    };
+    String[] projectLanguage = {
+            "English",
+            "Hindi",
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);}
@@ -42,9 +45,16 @@ public class CreatingVideosFragment extends Fragment implements AdapterView.OnIt
         rootView = inflater.inflate(R.layout.fragment_create_videos, container, false);
         getActivity().setTitle(R.string.title_creating);
 
+        //Code for ListView
         listViewCreateVideos = (ListView) rootView.findViewById(R.id.listView_create_projects);
-        listViewCreateVideos.setOnItemClickListener(this);
-        listViewCreateVideos.setOnItemLongClickListener(this);
+        CreateVideosAdapterActivity adapterActivity = new CreateVideosAdapterActivity(getContext(), projectName, projectLanguage);
+        listViewCreateVideos.setAdapter(adapterActivity);
+        listViewCreateVideos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
 
         fabForCreateVideos = (FloatingActionButton) rootView.findViewById(R.id.fab_create_project);
         fabForCreateVideos.setOnClickListener(new View.OnClickListener() {
@@ -52,75 +62,13 @@ public class CreatingVideosFragment extends Fragment implements AdapterView.OnIt
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-//                createFabSelected();
             }
         });
-        //Code for ListView
-        projectName = new ArrayList<String>();
-        projectName.add("There is a great stuff in this ListItem");
-        projectName.add("Done");
-        projectName.add("Here");
-        projectName.add("There");
-        projectName.add("Done");
-        projectName.add("Here");
-        projectName.add("There");
-        projectName.add("Done");
-        projectName.add("Here");
-        projectName.add("There");
-        projectName.add("Done");
-        projectName.add("Here");
-        projectName.add("There");
-        projectName.add("Done");
-        projectName.add("Here");
-        projectName.add("There");
-        projectName.add("Done");
-        projectName.add("Here");
-        System.out.println(projectName);
-
-        projectLanguage = new ArrayList<String>();
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        projectLanguage.add("English");
-        System.out.println(projectLanguage);
-
-        ArrayAdapter<String> arrayAdapterProjectName = new ArrayAdapter<String>(getActivity(), R.layout.content_for_create_videos, R.id.textView_project_name, projectName);
-        listViewCreateVideos.setAdapter(arrayAdapterProjectName);
-
-//        ArrayAdapter<String> arrayAdapterLanguage = new ArrayAdapter<String>(getActivity(), R.layout.content_for_create_videos, R.id.textView_language, projectLanguage);
-//        listViewCreateVideos.setAdapter(arrayAdapterLanguage);
         return rootView;
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String projectSelected = projectName.get(getId());
-        gotoEditingModule = new Intent(getActivity(), ViewOnlineVideoActivity.class);
-        gotoEditingModule.putExtra("Selected Project", projectSelected);
-        Log.i("Selected Project:", projectSelected);
-    }
-
-    @Override
-    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-        return false;
     }
 }

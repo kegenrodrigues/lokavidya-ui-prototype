@@ -57,7 +57,7 @@ public class BrowsingVideosAdapterActivity extends BaseAdapter {
             textView.setText(videoNames[position]);
             imageView.setImageResource(Imageid[position]);
         } else {
-            videoItems = (View) convertView;
+            videoItems = convertView;
         }
 
         return videoItems;

@@ -27,11 +27,11 @@
         android:layout_toRightOf="@+id/imageView_project_icon"
         android:ellipsize="end"
         android:singleLine="true"
-        android:layout_alignRight="@+id/textView_language"
-        android:layout_alignEnd="@+id/textView_language" />
+        android:layout_alignRight="@+id/textView_project_language"
+        android:layout_alignEnd="@+id/textView_project_language" />
     <TextView
         android:hint="Language"
-        android:id="@+id/textView_language"
+        android:id="@+id/textView_project_language"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView_project_name"
