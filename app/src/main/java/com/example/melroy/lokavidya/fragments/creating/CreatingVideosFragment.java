@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.melroy.lokavidya.R;
 import com.example.melroy.lokavidya.fragments.browsing.ViewOnlineVideoActivity;
@@ -29,11 +30,13 @@ public class CreatingVideosFragment extends Fragment {
     ListView listViewCreateVideos;
     String[] projectName = {
             "Biogas",
-            "River"
+            "River",
+            "Forests"
     };
     String[] projectLanguage = {
             "English",
             "Hindi",
+            "German"
     };
 
     @Override
@@ -52,7 +55,13 @@ public class CreatingVideosFragment extends Fragment {
         listViewCreateVideos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Toast.makeText(getActivity(), "Opening " + projectName[+position] + "...", Toast.LENGTH_LONG).show();
+            }
+        });
+        listViewCreateVideos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                return false;
             }
         });
 
