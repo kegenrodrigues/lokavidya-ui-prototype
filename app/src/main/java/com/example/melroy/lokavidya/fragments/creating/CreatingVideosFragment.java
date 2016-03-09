@@ -1,13 +1,11 @@
 package com.example.melroy.lokavidya.fragments.creating;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +14,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.melroy.lokavidya.R;
-import com.example.melroy.lokavidya.fragments.browsing.ViewOnlineVideoActivity;
-
-import java.util.ArrayList;
 
 /**
  This class handles calls to the Create Videos Fragment.
@@ -50,7 +45,7 @@ public class CreatingVideosFragment extends Fragment {
 
         //Code for ListView
         listViewCreateVideos = (ListView) rootView.findViewById(R.id.listView_create_projects);
-        CreateVideosAdapterActivity adapterActivity = new CreateVideosAdapterActivity(getContext(), projectName, projectLanguage);
+        CreatingVideosAdapterActivity adapterActivity = new CreatingVideosAdapterActivity(getContext(), projectName, projectLanguage);
         listViewCreateVideos.setAdapter(adapterActivity);
         listViewCreateVideos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
